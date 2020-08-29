@@ -1,13 +1,15 @@
 #include <iostream>
 
-void PrintMessage(const char* message);
-int Multiply(int a, int b);
-
-
-
 
 int main()
 {
-	PrintMessage("Hello World!");
-	std::cin.get();
-}
+	int popSize = 10;
+	
+	InitializeX();
+	//Initialize x randomly
+	//Initialize V randomly
+	//Evaluate fitness of each individual
+	//Initialize Pbest: current location
+	//Initialize Gbest with the best fitness
+	//
+} 
