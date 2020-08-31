@@ -1,11 +1,12 @@
 #include <iostream>
+#include "FunctionDec.h"
 
 
 int main()
 {
 	int popSize = 10;
 	
-	InitializeX();
+
 	//Initialize x randomly
 	//Initialize V randomly
 	//Evaluate fitness of each individual

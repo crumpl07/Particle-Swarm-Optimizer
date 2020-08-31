@@ -1,37 +1,24 @@
 #include <iostream>
+#include "Swarm.h";
 
-class Swarm
+Swarm::Swarm(int newPopSize, double newInertia, double* newGBest)
 {
-private:
-	double socialComponent;
-	double cognitiveComponent;
+	popSize = newPopSize;
+	inertia = newInertia;
+	gBest = newGBest;
+}
 
-public:
-	double globalBest[2];
+void Swarm::InitializeSwarm()
+{
+	
+}
 
+void Swarm::SetGlobalBest(double* newGB)
+{
+	
+}
 
-	Swarm(double gBX, double gBY, double gBZ)
-	{
-		globalBest[0] = gBX;
-		globalBest[1] = gBY;
-		globalBest[2] = gBZ;
+double* Swarm::GetGlobalBest()
+{
 
-	}
-
-	void InitializeSwarmX(double popSize)
-	{
-		Particle particle(rand% 10, rand% 10)
-	}
-
-	double* GetGlobalBest()
-	{
-		return globalBest;
-	}
-
-	void SetGlobalBest(double* newGlobalBest)
-	{
-		globalBest[0] = newGlobalBest[0];
-		globalBest[1] = newGlobalBest[1];
-		globalBest[2] = newGlobalBest[2];
-	}
-};
+}
