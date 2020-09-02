@@ -6,11 +6,11 @@ class Particle
 private:
 
 public:
-	double* pBest;
 
 	Particle(double *);
-	Vector position();
-	Vector velocity();
+	Vector position;
+	Vector velocity;
+	Vector pBest;
 
 protected:
 
