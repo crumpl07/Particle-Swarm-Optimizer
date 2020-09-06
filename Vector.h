@@ -10,13 +10,14 @@ public:
 	double z;
 
 	Vector();
-	Vector(double, double, double);
-
-	void SetX(double);
+	Vector(double x, double y, double z);
+	
+	double GetDistance(Vector particle1, Vector particle2);
+	void SetX(double x);
 	double GetX();
-	void SetY(double);
+	void SetY(double y);
 	double GetY();
-	void SetZ(double);
+	void SetZ(double z);
 	double GetZ();
 	
 

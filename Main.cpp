@@ -1,10 +1,12 @@
 #include <iostream>
 #include "FunctionDec.h"
+#include "Vector.h"
 
 
 int main()
 {
 	int popSize = 10;
+	Vector swarm[10];
 	
 
 	//Initialize x randomly

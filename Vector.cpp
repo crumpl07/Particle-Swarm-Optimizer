@@ -16,6 +16,21 @@ Vector::Vector(double nx, double ny, double nz)
 	z = nz;
 }
 
+double Vector::GetDistance(Vector particle1, Vector particle2)
+{
+	double x, y, z, distance;
+	x = particle1.GetX() + particle2.GetX();
+	y = particle1.GetY() + particle2.GetY();
+	z = particle1.GetZ() + particle2.GetZ();
+	x = std::pow(x,2);
+	y = std::pow(y, 2);
+	z = std::pow(z, 2);
+	distance = x + y + z;
+	distance = std::sqrt(distance);
+
+	return distance;
+}
+
 void Vector::SetX(double newX)
 {
 	x = newX;

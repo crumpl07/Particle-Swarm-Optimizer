@@ -14,10 +14,10 @@ public:
 	float congnitiveComponent;
 
 	Swarm(int, double, double*, float, float);
-	void InitializeSwarm();
+	void InitializeSwarm(double xBound, double yBound, double zBound);
 	void SetGlobalBest(double*);
-	double* GetGlobalBest();
-	double FitnessEval(Vector);
+	Vector GetGlobalBest();
+	double FitnessEval(Vector individual);
 
 protected:
 

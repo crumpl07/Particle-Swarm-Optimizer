@@ -7,7 +7,8 @@ private:
 
 public:
 
-	Particle(double *);
+	Particle(Vector newPBest);
+	Particle(double xbound, double ybound, double zbound);
 	Vector position;
 	Vector velocity;
 	Vector pBest;
