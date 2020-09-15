@@ -8,14 +8,14 @@ private:
 
 public:
 	int popSize;
-	double inertia;
-	double* gBest;
-	float socialComponent;
-	float congnitiveComponent;
+	double inertia = 0.8;
+	Vector gBest;
+	float socialComponent = 0.1;
+	float congnitiveComponent = 0.1;
 
-	Swarm(int, double, double*, float, float);
+	Swarm(int, Vector);
 	void InitializeSwarm(double xBound, double yBound, double zBound);
-	void SetGlobalBest(double*);
+	void SetGlobalBest(Vector);
 	Vector GetGlobalBest();
 	double FitnessEval(Vector individual);
 
