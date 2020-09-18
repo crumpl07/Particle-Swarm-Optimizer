@@ -1,6 +1,10 @@
 #include "Particle.h"
 #include <iostream>
 
+Particle::Particle()
+{
+	position;
+}
 
 Particle::Particle(Vector newPBest)
 	:

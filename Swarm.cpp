@@ -11,12 +11,13 @@ Swarm::Swarm(int newPopSize, Vector endPoint)
 	congnitiveComponent = .1;
 	socialComponent = .1;
 	inertia = .8;
+	particles;
+
 }
 
 	//Initilizes the particles in the swarm
 void Swarm::InitializeSwarm(double xBound, double yBound, double zBound)
 {
-	std::vector<Particle> particles;
 	for(int i = 0; i < 10; i++)
 	{
 		particles.push_back(Particle(xBound, yBound, zBound));
@@ -34,14 +35,33 @@ Vector Swarm::GetGlobalBest()
 	return gBest;
 }
 
-double Swarm::FitnessEval(Vector individual)
+double Swarm::FitnessEval(Vector individual, Vector endPoint)
 {
-	double eval = 0;
-	/*find the distance between each particle and the 
-	goal. This distance will be captured as a double and
-	returned as the fitness value. THe lower the value the
-	better the evaluation.*/
+	double eval;
 
+	eval = individual.GetDistance(individual, endPoint);
 
 	return eval;
+}
+
+Vector Swarm::UpdateVelocity(Vector velocity, Vector position, Vector gBest, Vector pBest)
+{
+	double temp = 0;
+	temp = velocity.GetX() + 2.0 * (rand() / (RAND_MAX)) * (pBest.GetX() - position.GetX()) + 2.0 * (rand() / (RAND_MAX)) * (gBest.GetX() - position.GetX());
+	velocity.SetX(temp);
+	temp = velocity.GetY() + 2.0 * (rand() / (RAND_MAX)) * (pBest.GetY() - position.GetY()) + 2.0 * (rand() / (RAND_MAX)) * (gBest.GetY() - position.GetY());
+	velocity.SetY(temp);
+	temp = velocity.GetZ() + 2.0 * (rand() / (RAND_MAX)) * (pBest.GetZ() - position.GetZ()) + 2.0 * (rand() / (RAND_MAX)) * (gBest.GetZ() - position.GetZ());
+	velocity.SetZ(temp);
+}
+
+Vector Swarm::UpdatePosition(Vector velocity, Vector position)
+{
+	double temp;
+	temp = position.GetX() + velocity.GetX();
+	position.SetX(temp);
+	temp = position.GetY() + velocity.GetY();
+	position.SetY(temp);
+	temp = position.GetZ() + velocity.GetZ();
+	position.SetZ(temp);
 }
