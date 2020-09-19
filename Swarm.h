@@ -23,7 +23,7 @@ public:
 	void SetGlobalBest(Vector);
 	Vector GetGlobalBest();
 	double FitnessEval(Vector individual, Vector endPoint);
-	Vector UpdateVelocity(Vector velocity, Vector position, Vector gBest, Vector pBest);
+	Vector UpdateVelocity(Vector velocity, Vector position, Vector gBest, Vector pBest, double inertia, double sc, double cc);
 	Vector UpdatePosition(Vector velocity, Vector position);
 
 protected:

@@ -44,24 +44,26 @@ double Swarm::FitnessEval(Vector individual, Vector endPoint)
 	return eval;
 }
 
-Vector Swarm::UpdateVelocity(Vector velocity, Vector position, Vector gBest, Vector pBest)
+Vector Swarm::UpdateVelocity(Vector velocity, Vector position, Vector gBest, Vector pBest, double inertia, double cc, double sc)
 {
 	double temp = 0;
-	temp = velocity.GetX() + 2.0 * (rand() / (RAND_MAX)) * (pBest.GetX() - position.GetX()) + 2.0 * (rand() / (RAND_MAX)) * (gBest.GetX() - position.GetX());
+	temp = (velocity.GetX() * inertia) + (sc * ((double)rand() / RAND_MAX) * (pBest.GetX() - velocity.GetX())) + (sc * ((double)rand() / RAND_MAX) * (gBest.GetX() - velocity.GetX()));
 	velocity.SetX(temp);
-	temp = velocity.GetY() + 2.0 * (rand() / (RAND_MAX)) * (pBest.GetY() - position.GetY()) + 2.0 * (rand() / (RAND_MAX)) * (gBest.GetY() - position.GetY());
+	temp = (velocity.GetY() * inertia) + (sc * ((double)rand() / RAND_MAX) * (pBest.GetY() - velocity.GetY())) + (sc * ((double)rand() / RAND_MAX) * (gBest.GetY() - velocity.GetY()));
 	velocity.SetY(temp);
-	temp = velocity.GetZ() + 2.0 * (rand() / (RAND_MAX)) * (pBest.GetZ() - position.GetZ()) + 2.0 * (rand() / (RAND_MAX)) * (gBest.GetZ() - position.GetZ());
+	temp = (velocity.GetZ() * inertia) + (sc * ((double)rand() / RAND_MAX) * (pBest.GetZ() - velocity.GetZ())) + (sc * ((double)rand() / RAND_MAX) * (gBest.GetZ() - velocity.GetZ()));
 	velocity.SetZ(temp);
+	return velocity;
 }
 
 Vector Swarm::UpdatePosition(Vector velocity, Vector position)
 {
-	double temp;
+	double temp = 0;
 	temp = position.GetX() + velocity.GetX();
 	position.SetX(temp);
 	temp = position.GetY() + velocity.GetY();
 	position.SetY(temp);
 	temp = position.GetZ() + velocity.GetZ();
 	position.SetZ(temp);
+	return position;
 }
