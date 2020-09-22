@@ -8,3 +8,5 @@ In completing this project I have gained more knowledge about OO programing and 
 My references are:
 
 Almeida, B., &amp; Leite, V. (2019, December 03). Particle Swarm Optimization: A Powerful Technique for Solving Engineering Problems. Retrieved August 27, 2020, from https://www.intechopen.com/books/swarm-intelligence-recent-advances-new-perspectives-and-applications/particle-swarm-optimization-a-powerful-technique-for-solving-engineering-problems
+
+Blodin, James. “Particle Swarm OptimizationApplications in Parameterization of Classifiers,” n.d. http://www.cs.armstrong.edu/saad/csci8100/pso_slides.pdf. 
