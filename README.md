@@ -10,3 +10,7 @@ My references are:
 Almeida, B., &amp; Leite, V. (2019, December 03). Particle Swarm Optimization: A Powerful Technique for Solving Engineering Problems. Retrieved August 27, 2020, from https://www.intechopen.com/books/swarm-intelligence-recent-advances-new-perspectives-and-applications/particle-swarm-optimization-a-powerful-technique-for-solving-engineering-problems
 
 Blodin, James. “Particle Swarm OptimizationApplications in Parameterization of Classifiers,” n.d. http://www.cs.armstrong.edu/saad/csci8100/pso_slides.pdf. 
+
+Ardeh, Mazhar Ansari. “Benchmark Functions.” Accessed September 22, 2020. http://benchmarkfcns.xyz/fcns. 
+
+Surjanovic, S., &amp; Bingham, D. (2013). Virtual Library of Simulation Experiments:. Retrieved September 22, 2020, from https://www.sfu.ca/~ssurjano/optimization.html.
