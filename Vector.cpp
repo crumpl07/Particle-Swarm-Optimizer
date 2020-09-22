@@ -16,7 +16,6 @@ Vector::Vector(double nx, double ny, double nz)
 	z = nz;
 }
 
-//Get distance between two particles
 double Vector::GetDistance(Vector particle1, Vector particle2)
 {
 	double x, y, z, distance;

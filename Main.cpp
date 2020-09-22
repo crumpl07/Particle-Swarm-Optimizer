@@ -7,6 +7,7 @@
 
 int main()
 {
+	//Variables
 	int popSize = 10;
 	Vector endPoint(7,7,7);
 	Vector globalBest;
@@ -19,13 +20,14 @@ int main()
 	sc = 1.8;
 	cc = 1.8;
 	bool x = true;
+	srand((unsigned)time(NULL));
 
 	Swarm swarm(popSize, endPoint);
 	swarm.InitializeSwarm(xbound, ybound, zbound);
 
 	while (x)
 	{
-		srand((unsigned) time(NULL));
+		
 		//Evaluate fitness of each individual
 		for (int i = 0; i < popSize; i++)
 		{
@@ -34,7 +36,7 @@ int main()
 			{
 				bestEval = swarm.FitnessEval(swarm.particles[i].position, endPoint);
 				globalBest = swarm.particles[i].position;
-				std::cout << "X: " << (globalBest.GetX()) << ", Y: " << globalBest.GetY() << ", Z = " << globalBest.GetZ() << std::endl;
+				std::cout << "X: " << (globalBest.GetX()) << ", Y: " << globalBest.GetY() << ", Z : " << globalBest.GetZ() << std::endl;
 			} 
 
 			//Set Personal Best

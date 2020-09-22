@@ -15,7 +15,6 @@ Swarm::Swarm(int newPopSize, Vector endPoint)
 
 }
 
-	//Initilizes the particles in the swarm
 void Swarm::InitializeSwarm(double xBound, double yBound, double zBound)
 {
 	for(int i = 0; i < 10; i++)
@@ -26,7 +25,6 @@ void Swarm::InitializeSwarm(double xBound, double yBound, double zBound)
 
 void Swarm::SetGlobalBest(Vector newGB)
 {
-	//Set gbest to the particle closest to the goal.
 	gBest = newGB;
 }
 
@@ -47,12 +45,28 @@ double Swarm::FitnessEval(Vector individual, Vector endPoint)
 Vector Swarm::UpdateVelocity(Vector velocity, Vector position, Vector gBest, Vector pBest, double inertia, double cc, double sc)
 {
 	double temp = 0;
-	temp = (velocity.GetX() * inertia) + (sc * ((double)rand() / RAND_MAX) * (pBest.GetX() - velocity.GetX())) + (sc * ((double)rand() / RAND_MAX) * (gBest.GetX() - velocity.GetX()));
+
+	temp = (velocity.GetX() * inertia) + (sc * RandomNumber() * (pBest.GetX() - position.GetX())) + (cc * RandomNumber() * (gBest.GetX() - position.GetX()));
+	if (velocity.GetX() < 0 || velocity.GetX() > 10)
+	{
+		temp = abs(std::fmod(temp, 10));
+	}
 	velocity.SetX(temp);
-	temp = (velocity.GetY() * inertia) + (sc * ((double)rand() / RAND_MAX) * (pBest.GetY() - velocity.GetY())) + (sc * ((double)rand() / RAND_MAX) * (gBest.GetY() - velocity.GetY()));
+
+	temp = (velocity.GetY() * inertia) + (sc * RandomNumber() * (pBest.GetY() - position.GetY())) + (cc * RandomNumber() * (gBest.GetY() - position.GetY()));
+	if (velocity.GetY() < 0 || velocity.GetY() > 10)
+	{
+		temp = abs(std::fmod(temp, 10));
+	}
 	velocity.SetY(temp);
-	temp = (velocity.GetZ() * inertia) + (sc * ((double)rand() / RAND_MAX) * (pBest.GetZ() - velocity.GetZ())) + (sc * ((double)rand() / RAND_MAX) * (gBest.GetZ() - velocity.GetZ()));
+
+	temp = (velocity.GetZ() * inertia) + (sc * RandomNumber() * (pBest.GetZ() - position.GetZ())) + (cc * RandomNumber() * (gBest.GetZ() - position.GetZ()));
+	if (velocity.GetZ() < 0 || velocity.GetZ() > 10)
+	{
+		temp = abs(std::fmod(temp, 10));
+	}
 	velocity.SetZ(temp);
+
 	return velocity;
 }
 
@@ -66,4 +80,9 @@ Vector Swarm::UpdatePosition(Vector velocity, Vector position)
 	temp = position.GetZ() + velocity.GetZ();
 	position.SetZ(temp);
 	return position;
+}
+
+double Swarm::RandomNumber()
+{
+	return ((double)rand() / RAND_MAX);
 }
